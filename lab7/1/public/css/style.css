@@ -1,0 +1,99 @@
+/* เลือก Font ที่ดูสะอาดตา */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #ffffff;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+    position: sticky;
+    top: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 600;
+    margin: 0 15px;
+    padding: 5px 10px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #007bff;
+}
+
+/* ส่วนเนื้อหาหลัก */
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+h1,p {
+    color: #222;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* จัดระเบียบรูปภาพ */
+.gallery {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.item {
+    background: #fff;
+    border: 1px solid #eee;
+    padding: 10px;
+    border-radius: 10px;
+    transition: transform 0.2s;
+}
+
+.item:hover {
+    transform: translateY(-5px);
+}
+
+.item img {
+    width: 250px;
+    height: 200px;
+    object-fit: cover; /* ทำให้รูปไม่เบี้ยว */
+    border-radius: 8px;
+}
+
+.item p {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #444;
+}
+
+/* ปุ่มขากลับแบบเด่นๆ หน่อย */
+.back-btn {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #007bff;
+    font-size: 0.9rem;
+}
+
+.catimg{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
