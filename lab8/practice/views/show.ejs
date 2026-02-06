@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        h2 { color: #333; }
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            max-width: 800px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+            text-align: left;
+            padding: 12px 15px;
+        }
+        td {
+            padding: 10px 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        tr:hover { background-color: #f1f1f1; }
+        .btn-back {
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% data.forEach((item) => { %>
+                <tr>
+                    <td><strong><%= item.ID %></strong></td>
+                    <td><%= item.name %></td>
+                    <td><%= item.dept_name %></td>
+                    <td><%= item.salary.toLocaleString() %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+
+    <a href="/" class="btn-back">← กลับหน้าหลัก</a>
+
+</body>
+</html>
