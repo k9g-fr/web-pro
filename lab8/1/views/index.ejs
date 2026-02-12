@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab8/1</title>
+    <style>
+        body { font-family: 'Kanit', sans-serif; background-color: #f0f2f5; margin: 0; padding: 20px; }
+        .container { max-width: 1100px; margin: auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        h2 { color: #1a73e8; border-left: 5px solid #1a73e8; padding-left: 15px; margin-bottom: 25px; }
+        
+        .registration-form { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-bottom: 40px; background: #fafafa; padding: 20px; border-radius: 8px; border: 1px solid #eee; }
+        .registration-form input, .registration-form textarea { padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; width: 100%; box-sizing: border-box; }
+        .registration-form textarea { grid-column: span 2; }
+        .btn-submit { grid-column: span 2; background-color: #28a745; color: white; border: none; padding: 15px; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: bold; transition: 0.3s; }
+        .btn-submit:hover { background-color: #218838; }
+
+        .table-container { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; background: white; }
+        th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #e0e0e0; font-size: 14px; }
+        th { background-color: #1a73e8; color: white; font-weight: 500; text-transform: uppercase; }
+        tr:hover { background-color: #f8f9fa; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Register</h2>
+    <form action="/register" method="POST" class="registration-form">
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="text" name="phone" placeholder="Phone number">
+        <input type="text" name="firstname" placeholder="Name">
+        <input type="text" name="lastname" placeholder="Surname">
+        <input type="number" name="age" placeholder="Age" min="0" required>
+        <textarea name="address" placeholder="Address" rows="2"></textarea>
+        <button type="submit" class="btn-submit">Register</button>
+    </form>
+
+    <h2>User database</h2>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>User</th>
+                    <th>Name-Surname</th>
+                    <th>Email</th>
+                    <th>Age</th>
+                    <th>Phone number</th>
+                    <th>Address</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if(users.length > 0) { %>
+                    <% users.forEach(user => { %>
+                        <tr>
+                            <td><%= user.id %></td>
+                            <td><strong><%= user.username %></strong></td>
+                            <td><%= user.firstname %> <%= user.lastname %></td>
+                            <td><%= user.email %></td>
+                            <td><%= user.age %> ปี</td>
+                            <td><%= user.phone %></td>
+                            <td><%= user.address %></td>
+                        </tr>
+                    <% }) %>
+                <% } else { %>
+                    <tr>
+                        <td colspan="7" style="text-align: center; color: #888;">No data</td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

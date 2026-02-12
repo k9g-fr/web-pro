@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab8/3</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 40px; }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: white;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .card-body {
+            padding: 20px;
+            color: #000;
+        }
+
+        .card-body h3 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .card-body p {
+            margin: 8px 0;
+            font-size: 18px;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="padding-left: 275px;">The most popular albums</h1>
+    <div class="grid-container">
+        <% albums.forEach(item => { %>
+            <div class="card">
+                <img src="<%= item.album_cover %>" alt="<%= item.song %>">
+                <div class="card-body">
+                    <h3><%= item.song %></h3>
+                    <p>Album: <%= item.album %> (<%= item.year %>)</p>
+                    <p>Artist: <%= item.artist %></p>
+                    <p>Genre: <%= item.genre %></p>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+
+</body>
+</html>

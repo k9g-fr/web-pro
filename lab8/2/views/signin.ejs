@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 8/2</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f4f7f6; display: flex; justify-content: center; padding-top: 50px; }
+        .login-card { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 100%; max-width: 450px; }
+        h2 { text-align: center; color: #333; margin-bottom: 25px; }
+        input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; box-sizing: border-box; }
+        button { width: 100%; padding: 12px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; font-weight: 600; margin-top: 10px; }
+        button:hover { background: #0056b3; }
+        
+        .error-msg { color: #721c24; background: #f8d7da; border: 1px solid #f5c6cb; padding: 10px; border-radius: 5px; margin-bottom: 15px; text-align: center; font-size: 14px; }
+        .success-msg { color: #155724; background: #d4edda; border: 1px solid #c3e6cb; padding: 10px; border-radius: 5px; margin-bottom: 15px; text-align: center; font-size: 14px; }
+        
+        .user-info { margin-top: 25px; border-top: 2px solid #eee; padding-top: 20px; }
+        .user-info h3 { font-size: 18px; color: #333; margin-bottom: 15px; text-align: center; }
+        .info-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #f9f9f9; font-size: 14px; }
+        .label { font-weight: 600; color: #666; }
+        .value { color: #333; }
+        
+        .footer-link { text-align: center; margin-top: 20px; font-size: 14px; }
+        .footer-link a { color: #007bff; text-decoration: none; }
+        .footer-link a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+<div class="login-card">
+    <h2>Sign-in</h2>
+
+    <% if (message) { %>
+        <div class="<%= message === 'Sign-in successful!' ? 'success-msg' : 'error-msg' %>">
+            <%= message %>
+        </div>
+    <% } %>
+
+    <form action="/signin" method="POST">
+        <input type="text" name="identity" placeholder="Username or Email" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">Sign-in</button>
+    </form>
+
+    <% if (userData) { %>
+        <div class="user-info">
+            <h3>User Profile Data</h3>
+            <div class="info-item"><span class="label">User ID:</span> <span class="value"><%= userData.id %></span></div>
+            <div class="info-item"><span class="label">Username:</span> <span class="value"><%= userData.username %></span></div>
+            <div class="info-item"><span class="label">Email:</span> <span class="value"><%= userData.email %></span></div>
+            <div class="info-item"><span class="label">Full Name:</span> <span class="value"><%= userData.firstname %> <%= userData.lastname %></span></div>
+            <div class="info-item"><span class="label">Age:</span> <span class="value"><%= userData.age %> years old</span></div>
+            <div class="info-item"><span class="label">Phone:</span> <span class="value"><%= userData.phone %></span></div>
+            <div class="info-item"><span class="label">Address:</span> <span class="value"><%= userData.address %></span></div>
+        </div>
+    <% } %>
+    
+    <div class="footer-link">
+        <p>Don't have an account? <a href="/">Register here</a></p>
+    </div>
+</div>
+
+</body>
+</html>
