@@ -1,0 +1,145 @@
+/* Google Font สำหรับความทันสมัย */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap');
+
+:root {
+    --primary-dark: #2c3e50;
+    --panda-white: #ffffff;
+    --panda-black: #1a1a1a;
+    --accent-green: #27ae60; /* สีเขียวไม้ไผ่ */
+    --soft-gray: #f8f9fa;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Kanit', sans-serif;
+    background-color: var(--soft-gray);
+    color: var(--primary-dark);
+    line-height: 1.6;
+}
+
+/* Header & Navigation */
+.main-header {
+    background: var(--panda-white);
+    box-shadow: var(--shadow);
+    padding: 0.5rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-section img {
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: var(--primary-dark);
+    font-weight: 400;
+    transition: all 0.3s ease;
+}
+
+.menu a:hover {
+    color: var(--accent-green);
+}
+
+/* Content Area */
+.content-wrapper {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 40px;
+    background: var(--panda-white);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    min-height: 60vh;
+}
+
+/* Footer */
+.main-footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: #95a5a6;
+    font-size: 0.9rem;
+}
+
+.footer-line {
+    border: 0;
+    border-top: 1px solid #eee;
+    width: 60px;
+    margin: 0 auto 20px;
+}
+
+/* การตั้งค่าตาราง */
+.table-title {
+    margin-bottom: 20px;
+    color: var(--primary-dark);
+    border-left: 5px solid var(--accent-green);
+    padding-left: 15px;
+}
+
+.table-container {
+    overflow-x: auto; /* รองรับการไถหน้าจอบนมือถือ */
+    margin-top: 20px;
+}
+
+.panda-table {
+    width: 100%;
+    border-collapse: collapse; /* ยุบขอบตารางให้เป็นเส้นเดียว */
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.panda-table awareness thead {
+    background-color: var(--primary-dark);
+    color: white;
+    text-align: left;
+}
+
+.panda-table th, 
+.panda-table td {
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+}
+
+/* ทำให้แถวสลับสี (Zebra Stripes) */
+.panda-table tbody tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+/* Effect เมื่อเอาเมาส์วาง */
+.panda-table tbody tr:hover {
+    background-color: #f1f9f4; /* สีเขียวอ่อนๆ */
+    transition: 0.2s;
+}
+
+.panda-table td strong {
+    color: var(--accent-green);
+}
